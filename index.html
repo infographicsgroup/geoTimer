@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+    <title>GeoTimer</title>
+</head>
+<link rel="stylesheet" type="text/css" href="style/style.css" media="screen" />
+
+<body>
+    <nav id="menu">
+        <button onclick="loadDataset()">Load Dataset</button>
+        <button onclick="playAnimation()">Play Animation</button>
+        <button onclick="plotCircles()">Plot Circles</button>
+        <div class="slider item">
+            <div class="label">scale (<span class="value">120</span>)</div>
+            <div><span class="low">0</span> <input type="range" name="scale" min="0" max="1500" value="120"> <span>1500</span></div>
+        </div>
+        <div class="slider item">
+            <div class="label">translate (x) (<span class="value">480</span>)</div>
+            <div><span class="low">0</span> <input type="range" name="translateX" min="-1000" max="1000" value="480">
+                <span>960</span></div>
+        </div>
+        <div class="slider item">
+            <div class="label">translate (y) (<span class="value">250</span>)</div>
+            <div><span class="low">0</span> <input type="range" name="translateY" min="-1500" max="1000" value="250">
+                <span>500</span></div>
+        </div>
+        <section id="Dataset">
+            <div>
+                <input type="text" id="pathString" name="dataset" required minlength="4" maxlength="50" size="20" value="antarcticpetrel.json">
+            </div>
+            <button id="collapsible">Open Collapsible</button>
+            <div id="dataIds">
+                <ul>
+                    <li id="multiFiles">
+                        <h3>multiFiles</h3>
+                        <input type="checkbox" id="multiFiles" name="multiFiles">
+                    </li>
+                    <li id="elementName  (or none)">
+                        <h3>element Name</h3>
+                        <input type="text" id="elementName" name="elementName" maxlength="50" size="20" value="individual-taxon-canonical-name">
+                    </li>
+                    <li id="elementIdSection (or none)">
+                        <h3>element Id</h3>
+                        <input type="text" id="elementId" name="elementId" maxlength="50" size="20" value="individual-local-identifier">
+                    </li>
+
+                    <li id="longitudeSection">
+                        <h3>longitude</h3>
+                        <input type="text" id="longitude" name="longitude" maxlength="50" size="20" value="location-long">
+                    </li>
+
+                    <li id="latitudeSection">
+                        <h3>latitude</h3>
+                        <input type="text" id="latitude" name="latitude" maxlength="50" size="20" value="location-lat">
+                    </li>
+                    <li id="altitudeSection">
+                        <h3>altitude</h3>
+                        <input type="text" id="altitude" name="altitude" maxlength="50" size="20" value="height-above-msl">
+                    </li>
+                    <li id="timeSection">
+                        <h3>time</h3>
+                        <input type="text" id="time" name="time" maxlength="50" size="20" value="timestamp">
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </nav>
+
+
+    <svg class="map" width="900px" height="500px">
+        <g class="graticule">
+            <path></path>
+        </g>
+        <g class="map"></g>
+        <g class="path"></g>
+        <g class="points"></g>
+    </svg>
+    <section id="datasets">
+        <ul>
+
+
+        </ul>
+    </section>
+    <svg class="timeline" width="900px" height="100px"></svg>
+
+    <svg class="heightPlot" width="900px" height="500px"></svg>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+    <script src="https://d3js.org/d3-selection-multi.v0.4.min.js"></script> <!-- //important for attrs -->
+
+    <script src="scripts/menu.js"></script>
+    <script src="scripts/map.js"></script>
+    <script src="scripts/path.js"></script>
+    <script src="scripts/loader.js"></script>
+    <script src="scripts/timeline.js"></script>
+    <script src="scripts/heightPlot.js"></script>
+    <script src="scripts/control.js"></script>
+</body>
+
+</html>
