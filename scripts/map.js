@@ -37,7 +37,7 @@ class Map {
             .rotate([state.rotateLambda, state.rotatePhi, state.rotateGamma])
 
         // Update world map
-        var u = d3.select('svg.map g.map')
+        let u = d3.select('svg.map g.map')
             .selectAll('path')
             .data(this.geojson.features)
 

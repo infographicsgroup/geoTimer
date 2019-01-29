@@ -11,6 +11,7 @@ class Menu {
             .selectAll('.slider.item input')
             .on('input', function (d) {
                 var attr = d3.select(this).attr('name');
+                let attr = d3.select(this).attr('name');
                 state[attr] = this.value;
                 d3.select(this.parentNode.parentNode).select('.value').text(this.value);
                 map.update(state);
@@ -18,14 +19,12 @@ class Menu {
             });
 
 
-        var coll = document.getElementById("collapsible");
-        var i;
-
+        let coll = document.getElementById("collapsible");
 
         coll.addEventListener("click", function () {
 
             this.classList.toggle("active");
-            var content = this.nextElementSibling;
+            let content = this.nextElementSibling;
             if (content.style.maxHeight) {
 
                 content.style.maxHeight = null;
